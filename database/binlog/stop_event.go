@@ -1,16 +1,19 @@
 package binlog
 
 import (
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // A representation of an event generated when mysqld stops.
 //
 // Common to both 5.5 and 5.6:
-//      The Post-Header and Body of the event are empty.
-//      The StopEvent only contains the Common-Header.
+//
+//	The Post-Header and Body of the event are empty.
+//	The StopEvent only contains the Common-Header.
+//
 // 5.6 Specific:
-//      (optional) 4 byte footer for checksum
+//
+//	(optional) 4 byte footer for checksum
 type StopEvent struct {
 	Event
 }

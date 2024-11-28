@@ -1,7 +1,7 @@
 package concurrent
 
 import (
-	"github.com/dropbox/godropbox/container/lrucache"
+	"github.com/SisyphusSQ/godropbox/container/lrucache"
 	"sync"
 )
 

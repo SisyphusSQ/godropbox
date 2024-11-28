@@ -1,22 +1,22 @@
 package binlog
 
 import (
-	"github.com/dropbox/godropbox/errors"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	"github.com/SisyphusSQ/godropbox/errors"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // A representation of the xid event.
 //
 // Xid event's binlog payload is structured as follow:
 //
-//  Common to both 5.5 and 5.6:
-//      19 bytes for common v4 event headers
-//      8 bytes (uint64) for xid.  NOTE: xid is written using the master's
-//          machine endianness.  The id's value will differ when read on
-//          different processor platforms; however, replication will function
-//          correctly since the uniqueness of the id is preserved.
-//  5.6 Specific:
-//      (optional) 4 bytes footer for checksum
+//	Common to both 5.5 and 5.6:
+//	    19 bytes for common v4 event headers
+//	    8 bytes (uint64) for xid.  NOTE: xid is written using the master's
+//	        machine endianness.  The id's value will differ when read on
+//	        different processor platforms; however, replication will function
+//	        correctly since the uniqueness of the id is preserved.
+//	5.6 Specific:
+//	    (optional) 4 bytes footer for checksum
 type XidEvent struct {
 	Event
 

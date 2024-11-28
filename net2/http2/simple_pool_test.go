@@ -12,8 +12,8 @@ import (
 
 	. "gopkg.in/check.v1"
 
-	. "github.com/dropbox/godropbox/gocheck2"
-	"github.com/dropbox/godropbox/net2/http2/test_utils"
+	. "github.com/SisyphusSQ/godropbox/gocheck2"
+	"github.com/SisyphusSQ/godropbox/net2/http2/test_utils"
 )
 
 type SimplePoolSuite struct {

@@ -6,7 +6,7 @@ import (
 	"path"
 	"strconv"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 type InvalidRotationError struct {

@@ -1,8 +1,8 @@
 package binlog
 
 import (
-	"github.com/dropbox/godropbox/errors"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	"github.com/SisyphusSQ/godropbox/errors"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // A representation of the rotate event.  NOTE: Users should ignore rotate
@@ -10,12 +10,12 @@ import (
 //
 // Ratate event's binlog payload is structured as follow:
 //
-//  Common to both 5.5 and 5.6:
-//      19 bytes for common v4 event headers
-//      8 bytes (uint64) for offset position
-//      the remaining for the new log name (not zero terminated).
-//  5.6 Specific:
-//      (optional) 4 bytes footer for checksum.
+//	Common to both 5.5 and 5.6:
+//	    19 bytes for common v4 event headers
+//	    8 bytes (uint64) for offset position
+//	    the remaining for the new log name (not zero terminated).
+//	5.6 Specific:
+//	    (optional) 4 bytes footer for checksum.
 type RotateEvent struct {
 	Event
 

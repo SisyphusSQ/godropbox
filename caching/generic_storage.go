@@ -3,7 +3,7 @@ package caching
 import (
 	"sync"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 // Options used in GenericStorage construction.

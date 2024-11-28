@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dropbox/godropbox/errors"
-	"github.com/dropbox/godropbox/stats"
+	"github.com/SisyphusSQ/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/stats"
 )
 
 type DialFunc func(network string, add string) (net.Conn, error)

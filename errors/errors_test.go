@@ -20,7 +20,7 @@ func TestStackTrace(t *testing.T) {
 		t.Errorf("error message %s != expected %s", er.GetMessage(), testMsg)
 	}
 
-	if strings.Index(er.GetStack(), "github.com/dropbox/godropbox/errors/errors.go") != -1 {
+	if strings.Index(er.GetStack(), "github.com/SisyphusSQ/godropbox/errors/errors.go") != -1 {
 		t.Error("stack trace generation code should not be in the error stack trace")
 	}
 
@@ -244,7 +244,6 @@ func TestFindWrappedErrorFoundTop(t *testing.T) {
 
 // ---------------------------------------
 // minimal example + test for custom error
-//
 type databaseError struct {
 	DropboxError
 	code int

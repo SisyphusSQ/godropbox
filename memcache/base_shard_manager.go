@@ -4,8 +4,8 @@ import (
 	"expvar"
 	"sync"
 
-	"github.com/dropbox/godropbox/container/set"
-	"github.com/dropbox/godropbox/net2"
+	"github.com/SisyphusSQ/godropbox/container/set"
+	"github.com/SisyphusSQ/godropbox/net2"
 )
 
 type MemcachedState int

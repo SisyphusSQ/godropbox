@@ -3,9 +3,9 @@ package memcache
 import (
 	. "gopkg.in/check.v1"
 
-	"github.com/dropbox/godropbox/container/set"
-	. "github.com/dropbox/godropbox/gocheck2"
-	"github.com/dropbox/godropbox/net2"
+	"github.com/SisyphusSQ/godropbox/container/set"
+	. "github.com/SisyphusSQ/godropbox/gocheck2"
+	"github.com/SisyphusSQ/godropbox/net2"
 )
 
 type ManagerSuite struct {

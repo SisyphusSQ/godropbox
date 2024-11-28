@@ -17,7 +17,7 @@ import (
 	"path"
 	"syscall"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 type FileLock struct {

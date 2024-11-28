@@ -1,8 +1,8 @@
 package binlog
 
 import (
-	"github.com/dropbox/godropbox/errors"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	"github.com/SisyphusSQ/godropbox/errors"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // BaseRowsEvent is the representation common to all v1/v2
@@ -11,38 +11,38 @@ import (
 // TODO(patrick): figure out what's inside the extra_row_info bytes (so far,
 // my searches lead to dead ends; looks almost like it's not used.)
 //
-//  Common to both 5.5 and 5.6:
-//      19 bytes for common v4 event header
-//      6 bytes (uint64) for table id
-//      2 bytes (uint16) for flags
-//  V2 rows events specific (5.6 only):
-//      2 bytes (uint16), X, for 2 + the length of variable-sized header
-//      X bytes for variable-sized header:
-//          (optional) extra info tag:
-//              1 byte for RW_V_EXTRAINFO_TAG (=0)
-//              1 byte (uint8), Y, for extra row info length
-//              Y bytes for extra row info data
-//  Common to both 5.5 and 5.6:
-//      1 to 9 bytes (net_store_length variable encoded uint64), Z, for total
-//              number of columns (XXX: should be same as # of columns in table
-//              map event?).
-//      ceil(Z / 8) bytes for bitmap indicating which columns are used.  (NOTE:
-//              for update events, this bitmap is used for the before image).
-//  V1/v2 update events specific:
-//      ceil(Z / 8) bytes for bitmap indicating which columns are used in the
-//              after image.
-//  Common to both 5.5 and 5.6:
-//      The remaining body contains the row data (row values are decoded based
-//              on current table context):
-//          V1/v2 write/delete events specific:
-//              List of rows
-//          V1/v2 update events specific:
-//              List of pairs of (before image row, after image row)
-//          Each row image is compose of:
-//              bit field indicating whether each field in the row is NULL.
-//              list of non-NULL encoded values.
-//  5.6 Specific:
-//      (optional) 4 bytes footer for checksum
+//	Common to both 5.5 and 5.6:
+//	    19 bytes for common v4 event header
+//	    6 bytes (uint64) for table id
+//	    2 bytes (uint16) for flags
+//	V2 rows events specific (5.6 only):
+//	    2 bytes (uint16), X, for 2 + the length of variable-sized header
+//	    X bytes for variable-sized header:
+//	        (optional) extra info tag:
+//	            1 byte for RW_V_EXTRAINFO_TAG (=0)
+//	            1 byte (uint8), Y, for extra row info length
+//	            Y bytes for extra row info data
+//	Common to both 5.5 and 5.6:
+//	    1 to 9 bytes (net_store_length variable encoded uint64), Z, for total
+//	            number of columns (XXX: should be same as # of columns in table
+//	            map event?).
+//	    ceil(Z / 8) bytes for bitmap indicating which columns are used.  (NOTE:
+//	            for update events, this bitmap is used for the before image).
+//	V1/v2 update events specific:
+//	    ceil(Z / 8) bytes for bitmap indicating which columns are used in the
+//	            after image.
+//	Common to both 5.5 and 5.6:
+//	    The remaining body contains the row data (row values are decoded based
+//	            on current table context):
+//	        V1/v2 write/delete events specific:
+//	            List of rows
+//	        V1/v2 update events specific:
+//	            List of pairs of (before image row, after image row)
+//	        Each row image is compose of:
+//	            bit field indicating whether each field in the row is NULL.
+//	            list of non-NULL encoded values.
+//	5.6 Specific:
+//	    (optional) 4 bytes footer for checksum
 type BaseRowsEvent struct {
 	Event
 

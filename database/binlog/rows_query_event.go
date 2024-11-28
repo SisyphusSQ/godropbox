@@ -1,19 +1,19 @@
 package binlog
 
 import (
-	"github.com/dropbox/godropbox/errors"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	"github.com/SisyphusSQ/godropbox/errors"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // A representation of the rows-query event.  NOTE: Rows-query event is not
 // available in 5.5.
 //
-//  Rows-query event's payload is structured as follow
-//      19 bytes for common v4 event header.
-//      1 byte for the (truncated) query length (ignore this since there's a
-//          bug in mysql's write_str_at_most_255_bytes).
-//      the remaining is for the (maybe truncated) query (not zero terminated).
-//      (optional) 4 bytes footer for checksum.
+//	Rows-query event's payload is structured as follow
+//	    19 bytes for common v4 event header.
+//	    1 byte for the (truncated) query length (ignore this since there's a
+//	        bug in mysql's write_str_at_most_255_bytes).
+//	    the remaining is for the (maybe truncated) query (not zero terminated).
+//	    (optional) 4 bytes footer for checksum.
 type RowsQueryEvent struct {
 	Event
 

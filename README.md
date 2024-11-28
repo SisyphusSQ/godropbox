@@ -1,4 +1,4 @@
-# godropbox [![GoDoc](https://godoc.org/github.com/dropbox/godropbox?status.svg)](https://godoc.org/github.com/dropbox/godropbox) [![Actions Status](https://github.com/dropbox/godropbox/workflows/Test/badge.svg)](https://github.com/dropbox/godropbox/actions) [![Actions Status](https://github.com/dropbox/godropbox/workflows/Lint/badge.svg)](https://github.com/dropbox/godropbox/actions)
+# godropbox [![GoDoc](https://godoc.org/github.com/SisyphusSQ/godropbox?status.svg)](https://godoc.org/github.com/SisyphusSQ/godropbox) [![Actions Status](https://github.com/SisyphusSQ/godropbox/workflows/Test/badge.svg)](https://github.com/SisyphusSQ/godropbox/actions) [![Actions Status](https://github.com/SisyphusSQ/godropbox/workflows/Lint/badge.svg)](https://github.com/SisyphusSQ/godropbox/actions)
 
 Common libraries for writing go services/applications on Linux servers.
 
@@ -7,8 +7,8 @@ Common libraries for writing go services/applications on Linux servers.
  * Linux/x64
 
 ### Installation
-``go get github.com/dropbox/godropbox``
+``go get github.com/SisyphusSQ/godropbox``
 
 ### Documentation
 
-See https://pkg.go.dev/github.com/dropbox/godropbox for modules documentation.
+See https://pkg.go.dev/github.com/SisyphusSQ/godropbox for modules documentation.

@@ -1,11 +1,11 @@
 package binlog
 
 import (
-	. "github.com/dropbox/godropbox/gocheck2"
+	. "github.com/SisyphusSQ/godropbox/gocheck2"
 
 	. "gopkg.in/check.v1"
 
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 type StopEventSuite struct {

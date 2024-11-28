@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 // An unsharded memcache client implementation which operates on a pre-existing

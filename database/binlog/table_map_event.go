@@ -3,35 +3,35 @@ package binlog
 import (
 	"math"
 
-	"github.com/dropbox/godropbox/errors"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	"github.com/SisyphusSQ/godropbox/errors"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // A representation of the table map event.
 //
-//  Common to both 5.5 and 5.6:
-//      19 bytes for common v4 event header
-//      6 bytes (uint64) for table id
-//      2 bytes (uint16) for flags (as of 5.6, this is always 0)
-//      1 byte (uint8), x, for db name length (WARNING: mysql assumes the db
-//          name length is always less than 255; the log writer truncates
-//          the db name length from size_t to uchar without checking)
-//      x + 1 bytes for db name (zero-terminated)
-//      1 byte (uint8), y, for table name length (WARNING: mysql assumes the
-//          table name length is always less than 255; the log writer truncates
-//          the table name length from size_t to uchar without checking)
-//      y + 1 bytes for table name (zero-terminated)
-//      1 to 9 bytes (net_store_length variable encoded uint64), z, for number
-//          of columns
-//      z bytes for column types (1 byte per column)
-//      1 to 9 bytes (net_store_length variable encoded uint64), w, for
-//          field metadata size
-//      w bytes for field metadata
-//      ceil(z / 8) bytes for nullable columns (1 bit per column)
-//  5.6 Specific:
-//      (optional) 4 bytes footer for checksum
-//  NOTE:
-//      - old_row_based_repl_4_byte_map_id_master mode is not supported.
+//	Common to both 5.5 and 5.6:
+//	    19 bytes for common v4 event header
+//	    6 bytes (uint64) for table id
+//	    2 bytes (uint16) for flags (as of 5.6, this is always 0)
+//	    1 byte (uint8), x, for db name length (WARNING: mysql assumes the db
+//	        name length is always less than 255; the log writer truncates
+//	        the db name length from size_t to uchar without checking)
+//	    x + 1 bytes for db name (zero-terminated)
+//	    1 byte (uint8), y, for table name length (WARNING: mysql assumes the
+//	        table name length is always less than 255; the log writer truncates
+//	        the table name length from size_t to uchar without checking)
+//	    y + 1 bytes for table name (zero-terminated)
+//	    1 to 9 bytes (net_store_length variable encoded uint64), z, for number
+//	        of columns
+//	    z bytes for column types (1 byte per column)
+//	    1 to 9 bytes (net_store_length variable encoded uint64), w, for
+//	        field metadata size
+//	    w bytes for field metadata
+//	    ceil(z / 8) bytes for nullable columns (1 bit per column)
+//	5.6 Specific:
+//	    (optional) 4 bytes footer for checksum
+//	NOTE:
+//	    - old_row_based_repl_4_byte_map_id_master mode is not supported.
 type TableMapEvent struct {
 	Event
 

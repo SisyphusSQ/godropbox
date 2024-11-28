@@ -3,8 +3,8 @@ package binlog
 import (
 	. "gopkg.in/check.v1"
 
-	. "github.com/dropbox/godropbox/gocheck2"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	. "github.com/SisyphusSQ/godropbox/gocheck2"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 type RowsQueryEventSuite struct {

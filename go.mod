@@ -1,4 +1,4 @@
-module github.com/dropbox/godropbox
+module github.com/SisyphusSQ/godropbox
 
 go 1.13
 

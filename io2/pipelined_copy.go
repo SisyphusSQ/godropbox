@@ -1,3 +1,4 @@
+//go:build go1.5
 // +build go1.5
 
 package io2
@@ -6,7 +7,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 // This is similar to io.CopyBuffer, except this uses circular buffer and

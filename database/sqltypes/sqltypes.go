@@ -16,8 +16,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/dropbox/godropbox/encoding2"
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/encoding2"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 var (
@@ -224,6 +224,10 @@ func BuildValue(goval interface{}) (v Value, err error) {
 		v = Value{Numeric(strconv.AppendInt(nil, int64(val), 10))}
 	case int:
 		v = Value{Numeric(strconv.AppendInt(nil, int64(bindVal), 10))}
+	case int8:
+		v = Value{Numeric(strconv.AppendInt(nil, int64(bindVal), 10))}
+	case int16:
+		v = Value{Numeric(strconv.AppendInt(nil, int64(bindVal), 10))}
 	case int32:
 		v = Value{Numeric(strconv.AppendInt(nil, int64(bindVal), 10))}
 	case int64:
@@ -232,10 +236,14 @@ func BuildValue(goval interface{}) (v Value, err error) {
 		v = Value{Numeric(strconv.AppendUint(nil, uint64(bindVal), 10))}
 	case uint8:
 		v = Value{Numeric(strconv.AppendUint(nil, uint64(bindVal), 10))}
+	case uint16:
+		v = Value{Numeric(strconv.AppendUint(nil, uint64(bindVal), 10))}
 	case uint32:
 		v = Value{Numeric(strconv.AppendUint(nil, uint64(bindVal), 10))}
 	case uint64:
 		v = Value{Numeric(strconv.AppendUint(nil, uint64(bindVal), 10))}
+	case float32:
+		v = Value{Fractional(strconv.AppendFloat(nil, float64(bindVal), 'f', -1, 64))}
 	case float64:
 		v = Value{Fractional(strconv.AppendFloat(nil, bindVal, 'f', -1, 64))}
 	case string:
@@ -262,7 +270,7 @@ func BuildValue(goval interface{}) (v Value, err error) {
 	return v, nil
 }
 
-// ConverAssignRowNullable is the same as ConvertAssignRow except that it allows
+// ConvertAssignRowNullable is the same as ConvertAssignRow except that it allows
 // nil as a value for the row or any of the row values. In thoses cases, the
 // corresponding values are ignored.
 func ConvertAssignRowNullable(row []Value, dest ...interface{}) error {

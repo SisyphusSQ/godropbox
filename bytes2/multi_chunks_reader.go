@@ -3,7 +3,7 @@ package bytes2
 import (
 	"io"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 type MultiChunksReader struct {

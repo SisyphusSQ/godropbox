@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 type Statement interface {
@@ -474,9 +474,9 @@ func newInsertStatement(
 	columns ...NonAliasColumn) InsertStatement {
 
 	return &insertStatementImpl{
-		table:   t,
-		columns: columns,
-		rows:    make([][]Expression, 0, 1),
+		table:                 t,
+		columns:               columns,
+		rows:                  make([][]Expression, 0, 1),
 		onDuplicateKeyUpdates: make([]columnAssignment, 0, 0),
 	}
 }

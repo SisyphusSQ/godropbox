@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dropbox/godropbox/database/sqltypes"
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/database/sqltypes"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 type orderByClause struct {
@@ -702,7 +702,8 @@ func (exp *ifExpression) SerializeSql(out *bytes.Buffer) error {
 }
 
 // Returns a representation of an if-expression, of the form:
-//   IF (BOOLEAN TEST, VALUE-IF-TRUE, VALUE-IF-FALSE)
+//
+//	IF (BOOLEAN TEST, VALUE-IF-TRUE, VALUE-IF-FALSE)
 func If(conditional BoolExpression,
 	trueExpression Expression,
 	falseExpression Expression) Expression {

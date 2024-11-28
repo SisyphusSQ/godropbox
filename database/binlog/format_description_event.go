@@ -3,32 +3,32 @@ package binlog
 import (
 	"bytes"
 
-	"github.com/dropbox/godropbox/errors"
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	"github.com/SisyphusSQ/godropbox/errors"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 // A representation of the format description event.
 //
 // FDE binlog payload is structured as follow:
 //
-//  Common to both 5.5 and 5.6:
-//      19 bytes for common v4 event headers
-//      2 bytes (uint16) for binlog version
-//      50 bytes for server version string (padded with '\0's)
-//      4 bytes (uint32) for created timestamp.  Note that this value may be
-//          unpopulated.
-//      1 byte (uint8) for total header size, where total header size =
-//          common header size + extra headers size
-//      1 byte per event type for event's fixed length data size.  Note that
-//          unknown events does not have an entry.
-//  5.5 Specific:
-//      27 bytes for events' fixed size length (one uint8 entry per event
-//          type, except unknown events)
-//  5.6 Specific:
-//      35 bytes for events' fixed size length (one uint8 entry per event
-//          type, except unknown events)
-//      1 byte (uint8) for checksum algorithm
-//      4 bytes for checksum
+//	Common to both 5.5 and 5.6:
+//	    19 bytes for common v4 event headers
+//	    2 bytes (uint16) for binlog version
+//	    50 bytes for server version string (padded with '\0's)
+//	    4 bytes (uint32) for created timestamp.  Note that this value may be
+//	        unpopulated.
+//	    1 byte (uint8) for total header size, where total header size =
+//	        common header size + extra headers size
+//	    1 byte per event type for event's fixed length data size.  Note that
+//	        unknown events does not have an entry.
+//	5.5 Specific:
+//	    27 bytes for events' fixed size length (one uint8 entry per event
+//	        type, except unknown events)
+//	5.6 Specific:
+//	    35 bytes for events' fixed size length (one uint8 entry per event
+//	        type, except unknown events)
+//	    1 byte (uint8) for checksum algorithm
+//	    4 bytes for checksum
 type FormatDescriptionEvent struct {
 	Event
 

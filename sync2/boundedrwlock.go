@@ -5,7 +5,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 // A fair RWLock with timeouts and a capacity.
@@ -14,7 +14,7 @@ import (
 //
 //  1. If a writer holds the lock, only a single writer is in the lock.
 //  2. If a writer does not hold the lock, any number of readers may hold the
-//  lock.
+//     lock.
 //
 // The lock favors writers, but readers are not starved, and the next batch of
 // readers will be served in before any waiting writers in FIFO order

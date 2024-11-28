@@ -1,7 +1,7 @@
 package binlog
 
 import (
-	mysql_proto "github.com/dropbox/godropbox/proto/mysql"
+	mysql_proto "github.com/SisyphusSQ/godropbox/proto/mysql"
 )
 
 type parsedV4EventReader struct {

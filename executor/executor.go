@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/dropbox/godropbox/errors"
+	"github.com/SisyphusSQ/godropbox/errors"
 )
 
 type Request interface {
